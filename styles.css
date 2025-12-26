@@ -1,0 +1,18 @@
+#container {
+    display: flex;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    border: 5px solid green;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0px;
+}
+
+.divGrid {
+    border: 1px solid black;
+    width: 25px;
+    height: 25px;
+    flex: 0 1 auto;
+}
