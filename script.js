@@ -12,3 +12,7 @@ array.forEach(arr => {
 
 })
 
+array.forEach(arr => {
+     arr.addEventListener("mouseenter",() => arr.style.backgroundColor = "lightblue")
+})
+
