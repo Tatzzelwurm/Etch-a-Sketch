@@ -1,4 +1,4 @@
-const container = document.querySelector("#container")
+const grid = document.querySelector("#grid")
 let gridSize = 16 // Grid dimensions (16x16)
 let gridElementCount = 256  // Total cells = gridSize * gridSize
 let array = []
@@ -47,14 +47,14 @@ function createGrid(newGridElementCount,newGridSize) {
 
 function addNewGrid() {
 array.forEach(arr => {
-     container.appendChild(arr)
+     grid.appendChild(arr)
      arr.classList.add("divGrid")
 })
 }
 
 function clearGrid() {
 array.forEach(arr => (
-     container.removeChild(arr)
+     grid.removeChild(arr)
 ))
 array.length = 0
 }

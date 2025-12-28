@@ -1,21 +1,22 @@
 body {
-    margin: 10px;
-    padding: 0px;
     display: flex;
     flex-direction: column;
+    margin: 0px;
+    padding: 0px;
     align-items: center;
-    gap: 10px;
-    background-color: #82aa94;
+    gap: 20px;
+    background-color: oklch(25.457% 0.02904 199.254);
     color: rgba(0, 0, 0, 0.788);
 }
 
 
-#container {
+#grid {
     display: flex;
     width: 800px;
     height: 800px;
     background-color: white;
-    border: 5px solid green;
+    border: 5px solid rgb(7, 56, 58);
+    box-shadow: 0 0 15px lightseagreen;
     flex-wrap: wrap;
     gap: 0px;
     align-content: flex-start;
@@ -32,5 +33,25 @@ body {
 #gridSizeBtn {
     height: 30px;
     border-radius: 10px;
+
     
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+#container {
+    display: flex;
+}
+
+
+#palette {
+    background-color: whitesmoke;
+    width: 250px;
+    border: 5px solid rgb(7, 56, 58);
+    box-shadow: 0 0 15px lightseagreen;
 }
