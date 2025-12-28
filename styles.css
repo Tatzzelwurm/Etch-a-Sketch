@@ -31,11 +31,17 @@ body {
   border-radius: 10px;
 }
 
+#clearGridBtn {
+  height: 30px;
+  border-radius: 30px;
+}
+
 #header {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;
+  gap: 10px;
 }
 
 #container {
