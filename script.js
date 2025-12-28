@@ -9,7 +9,7 @@ draw()
 
 function draw() {
 array.forEach(arr => {
-     arr.addEventListener("mouseenter",() => arr.style.backgroundColor = "rgba(0, 0, 0, 0.788)")
+     arr.addEventListener("mousedown",() => arr.style.backgroundColor = "grey")
 })
 }
 
@@ -26,8 +26,11 @@ function getNewGridSize() {
 const gridSizeBtn = document.querySelector("#gridSizeBtn")
 gridSizeBtn.addEventListener("click", () => getNewGridSize())
 
+const clearGridBtn = document.querySelector("#clearGridBin")
+clearGridBtn.addEventListener("click", () => clearGrid())
+
 function changeGridSize(newGridSize, newGridElementCount) {
-     clearGrid()
+     removeGrid()
      newGridElementCount = newGridSize ** 2
      createGrid(newGridElementCount, newGridSize)
      addNewGrid()
@@ -52,9 +55,16 @@ array.forEach(arr => {
 })
 }
 
-function clearGrid() {
+function removeGrid() {
 array.forEach(arr => (
      grid.removeChild(arr)
 ))
 array.length = 0
 }
+
+function clearGrid() {
+array.forEach(arr => {
+clearGridBtn.addEventListener("click",() => arr.style.backgroundColor = "white")
+})
+}
+
