@@ -33,7 +33,7 @@ body {
 
 #clearGridBtn {
   height: 30px;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 #header {
@@ -52,7 +52,7 @@ body {
 #palette {
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 35px;
   justify-content: space-evenly;
   align-content: center;
   background-color: whitesmoke;
@@ -104,8 +104,11 @@ body {
 #blackColor {
   background-color: black;
 }
+#whiteColor {
+  background-color: white;
+}
 
-.square {
+.ColorElement {
   border: 2px solid black;
   width: 70px;
   height: 70px;
