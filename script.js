@@ -26,7 +26,7 @@ function getNewGridSize() {
 const gridSizeBtn = document.querySelector("#gridSizeBtn")
 gridSizeBtn.addEventListener("click", () => getNewGridSize())
 
-const clearGridBtn = document.querySelector("#clearGridBin")
+const clearGridBtn = document.querySelector("#clearGridBtn")
 clearGridBtn.addEventListener("click", () => clearGrid())
 
 function changeGridSize(newGridSize, newGridElementCount) {
