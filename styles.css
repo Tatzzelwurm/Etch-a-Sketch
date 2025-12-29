@@ -35,15 +35,14 @@ button {
   border: 1px solid black;
   cursor: pointer;
   font-weight: 600;
-
 }
 
 #header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-end;
   height: 50px;
-  width: 500px;
+  width: 800px;
   gap: 10px;
 }
 

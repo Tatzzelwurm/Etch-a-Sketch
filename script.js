@@ -36,11 +36,16 @@ function getNewGridSize() {
     alert("Invalid input. Please enter a number from 5 to 100");
   }
 }
-const gridSizeBtn = document.querySelector("#gridSizeBtn");
-gridSizeBtn.addEventListener("click", () => getNewGridSize());
+const newGridSizeBtn = document.querySelector("#newGridSizeBtn");
+newGridSizeBtn.addEventListener("click", () => getNewGridSize());
 
 const clearGridBtn = document.querySelector("#clearGridBtn");
 clearGridBtn.addEventListener("click", () => clearGrid());
+
+const gridDefaultSizeBtn = document.querySelector("#gridDefaultSizeBtn");
+gridDefaultSizeBtn.addEventListener("click", () => {
+  removeGrid(), createGrid(gridElementCount, gridSize), addNewGrid(), draw();
+});
 
 const randomColorBtn = document.querySelector("#randomColorBtn");
 
@@ -56,14 +61,41 @@ randomColorBtn.addEventListener("click", () => {
   }
 });
 
-randomColorBtn.addEventListener("mouseenter", () => {randomColorBtn.style.color = "rgb(56, 231, 231)", randomColorBtn.style.backgroundColor = "rgba(9, 66, 68, 1)"})
-randomColorBtn.addEventListener("mouseleave", () => {randomColorBtn.style.color = "white",randomColorBtn.style.backgroundColor = "rgb(7, 56, 58)"})
+randomColorBtn.addEventListener("mouseenter", () => {
+  (randomColorBtn.style.color = "rgb(56, 231, 231)"),
+    (randomColorBtn.style.backgroundColor = "rgba(9, 66, 68, 1)");
+});
+randomColorBtn.addEventListener("mouseleave", () => {
+  (randomColorBtn.style.color = "white"),
+    (randomColorBtn.style.backgroundColor = "rgb(7, 56, 58)");
+});
 
-clearGridBtn.addEventListener("mouseenter", () => {clearGridBtn.style.color = "rgb(56, 231, 231)", clearGridBtn.style.backgroundColor = "rgba(9, 66, 68, 1)"})
-clearGridBtn.addEventListener("mouseleave", () => {clearGridBtn.style.color = "white",clearGridBtn.style.backgroundColor = "rgb(7, 56, 58)"})
+clearGridBtn.addEventListener("mouseenter", () => {
+  (clearGridBtn.style.color = "rgb(56, 231, 231)"),
+    (clearGridBtn.style.backgroundColor = "rgba(9, 66, 68, 1)");
+});
+clearGridBtn.addEventListener("mouseleave", () => {
+  (clearGridBtn.style.color = "white"),
+    (clearGridBtn.style.backgroundColor = "rgb(7, 56, 58)");
+});
 
-gridSizeBtn.addEventListener("mouseenter", () => {gridSizeBtn.style.color = "rgb(56, 231, 231)", gridSizeBtn.style.backgroundColor = "rgba(9, 66, 68, 1)"})
-gridSizeBtn.addEventListener("mouseleave", () => {gridSizeBtn.style.color = "white",gridSizeBtn.style.backgroundColor = "rgb(7, 56, 58)"})
+newGridSizeBtn.addEventListener("mouseenter", () => {
+  (newGridSizeBtn.style.color = "rgb(56, 231, 231)"),
+    (newGridSizeBtn.style.backgroundColor = "rgba(9, 66, 68, 1)");
+});
+newGridSizeBtn.addEventListener("mouseleave", () => {
+  (newGridSizeBtn.style.color = "white"),
+    (newGridSizeBtn.style.backgroundColor = "rgb(7, 56, 58)");
+});
+
+gridDefaultSizeBtn.addEventListener("mouseenter", () => {
+  (gridDefaultSizeBtn.style.color = "rgb(56, 231, 231)"),
+    (gridDefaultSizeBtn.style.backgroundColor = "rgba(9, 66, 68, 1)");
+});
+gridDefaultSizeBtn.addEventListener("mouseleave", () => {
+  (gridDefaultSizeBtn.style.color = "white"),
+    (gridDefaultSizeBtn.style.backgroundColor = "rgb(7, 56, 58)");
+});
 
 function changeGridSize(newGridSize, newGridElementCount) {
   removeGrid();
@@ -121,8 +153,6 @@ function getRandomColor() {
     return "purple";
   }
 }
-
-
 
 const red = document.querySelector("#redColor");
 const orange = document.querySelector("#orangeColor");
