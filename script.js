@@ -56,6 +56,15 @@ randomColorBtn.addEventListener("click", () => {
   }
 });
 
+randomColorBtn.addEventListener("mouseenter", () => {randomColorBtn.style.color = "rgb(56, 231, 231)", randomColorBtn.style.backgroundColor = "rgba(9, 66, 68, 1)"})
+randomColorBtn.addEventListener("mouseleave", () => {randomColorBtn.style.color = "white",randomColorBtn.style.backgroundColor = "rgb(7, 56, 58)"})
+
+clearGridBtn.addEventListener("mouseenter", () => {clearGridBtn.style.color = "rgb(56, 231, 231)", clearGridBtn.style.backgroundColor = "rgba(9, 66, 68, 1)"})
+clearGridBtn.addEventListener("mouseleave", () => {clearGridBtn.style.color = "white",clearGridBtn.style.backgroundColor = "rgb(7, 56, 58)"})
+
+gridSizeBtn.addEventListener("mouseenter", () => {gridSizeBtn.style.color = "rgb(56, 231, 231)", gridSizeBtn.style.backgroundColor = "rgba(9, 66, 68, 1)"})
+gridSizeBtn.addEventListener("mouseleave", () => {gridSizeBtn.style.color = "white",gridSizeBtn.style.backgroundColor = "rgb(7, 56, 58)"})
+
 function changeGridSize(newGridSize, newGridElementCount) {
   removeGrid();
   newGridElementCount = newGridSize ** 2;
@@ -112,6 +121,8 @@ function getRandomColor() {
     return "purple";
   }
 }
+
+
 
 const red = document.querySelector("#redColor");
 const orange = document.querySelector("#orangeColor");

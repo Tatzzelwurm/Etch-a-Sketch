@@ -26,21 +26,24 @@ body {
   box-sizing: border-box;
 }
 
-#gridSizeBtn {
-  height: 30px;
-  border-radius: 10px;
-}
+button {
+  height: 35px;
+  font-size: 15px;
+  background-color: rgb(7, 56, 58);
+  color: white;
+  border-radius: 8px;
+  border: 1px solid black;
+  cursor: pointer;
+  font-weight: 600;
 
-#clearGridBtn {
-  height: 30px;
-  border-radius: 10px;
 }
 
 #header {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   height: 50px;
+  width: 500px;
   gap: 10px;
 }
 
@@ -79,6 +82,7 @@ body {
 
 #cyanColor {
   background-color: cyan;
+  background-color: rgb(56, 231, 231);
 }
 
 #blueColor {
@@ -113,4 +117,5 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 20px;
+  cursor: pointer;
 }
