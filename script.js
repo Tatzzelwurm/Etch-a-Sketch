@@ -3,6 +3,7 @@ let gridSize = 16; // Grid dimensions (16x16)
 let gridElementCount = 256; // Total cells = gridSize * gridSize
 let array = [];
 let color = "grey";
+let isRandomMode = false;
 createGrid(gridElementCount, gridSize);
 addNewGrid();
 draw();
@@ -12,6 +13,15 @@ function draw() {
     arr.addEventListener(
       "mousedown",
       () => (arr.style.backgroundColor = color)
+    );
+  });
+}
+
+function drawRandom() {
+  array.forEach((arr) => {
+    arr.addEventListener(
+      "mousedown",
+      () => (arr.style.backgroundColor = getRandomColor())
     );
   });
 }
@@ -31,6 +41,77 @@ gridSizeBtn.addEventListener("click", () => getNewGridSize());
 
 const clearGridBtn = document.querySelector("#clearGridBtn");
 clearGridBtn.addEventListener("click", () => clearGrid());
+
+const randomColorBtn = document.querySelector("#randomColorBtn");
+
+randomColorBtn.addEventListener("click", () => {
+  isRandomMode = !isRandomMode;
+  randomColorBtn.textContent = isRandomMode
+    ? "Random colors mode: ON"
+    : "Random colors mode: OFF";
+  if (isRandomMode) {
+    drawRandom();
+  } else {
+    draw();
+  }
+});
+
+function changeGridSize(newGridSize, newGridElementCount) {
+  removeGrid();
+  newGridElementCount = newGridSize ** 2;
+  createGrid(newGridElementCount, newGridSize);
+  addNewGrid();
+  draw();
+}
+
+function clearGrid() {
+  array.forEach((arr) => {
+    clearGridBtn.addEventListener(
+      "click",
+      () => (arr.style.backgroundColor = "white")
+    );
+  });
+}
+
+function createGrid(newGridElementCount, newGridSize) {
+  for (let i = 1; i <= newGridElementCount; i++) {
+    const element = document.createElement("div");
+    element.style.width = `calc(100% / ${newGridSize})`;
+    element.style.height = `calc(100% / ${newGridSize})`;
+    array.push(element);
+  }
+}
+
+function addNewGrid() {
+  array.forEach((arr) => {
+    grid.appendChild(arr);
+    arr.classList.add("divGrid");
+  });
+}
+
+function removeGrid() {
+  array.forEach((arr) => grid.removeChild(arr));
+  array.length = 0;
+}
+
+function getRandomColor() {
+  const x = Math.floor(Math.random() * 7);
+  if (x == 0) {
+    return "red";
+  } else if (x == 1) {
+    return "orange";
+  } else if (x == 2) {
+    return "yellow";
+  } else if (x == 3) {
+    return "green";
+  } else if (x == 4) {
+    return "cyan";
+  } else if (x == 5) {
+    return "blue";
+  } else if (x == 6) {
+    return "purple";
+  }
+}
 
 const red = document.querySelector("#redColor");
 const orange = document.querySelector("#orangeColor");
@@ -59,41 +140,3 @@ brown.addEventListener("click", () => (color = "brown"));
 grey.addEventListener("click", () => (color = "grey"));
 black.addEventListener("click", () => (color = "black"));
 white.addEventListener("click", () => (color = "white"));
-
-function changeGridSize(newGridSize, newGridElementCount) {
-  removeGrid();
-  newGridElementCount = newGridSize ** 2;
-  createGrid(newGridElementCount, newGridSize);
-  addNewGrid();
-  draw();
-}
-
-function createGrid(newGridElementCount, newGridSize) {
-  for (let i = 1; i <= newGridElementCount; i++) {
-    const element = document.createElement("div");
-    element.style.width = `calc(100% / ${newGridSize})`;
-    element.style.height = `calc(100% / ${newGridSize})`;
-    array.push(element);
-  }
-}
-
-function addNewGrid() {
-  array.forEach((arr) => {
-    grid.appendChild(arr);
-    arr.classList.add("divGrid");
-  });
-}
-
-function removeGrid() {
-  array.forEach((arr) => grid.removeChild(arr));
-  array.length = 0;
-}
-
-function clearGrid() {
-  array.forEach((arr) => {
-    clearGridBtn.addEventListener(
-      "click",
-      () => (arr.style.backgroundColor = "white")
-    );
-  });
-}
