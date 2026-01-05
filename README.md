@@ -1,1 +1,2 @@
 # Etch-a-Sketch
+A browser-based drawing grid where you can paint with various colors. Customize the grid size from 5x5 up to 100x100. Choose colors from the palette, use random colors mode, or enable gradual opacity darkening. Clear the canvas or reset to default size with a single click!
