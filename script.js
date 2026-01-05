@@ -5,7 +5,8 @@ let gridSquares = [];
 let color = "grey";
 let isRandomMode = false;
 let isOpacityMode = false;
-
+let isDrawing = false;
+let sizeChanged = false
 createGrid(gridElementCount, gridSize);
 addNewGrid();
 draw();
@@ -13,17 +14,29 @@ draw();
 function draw() {
   gridSquares.forEach((square) => {
     square.addEventListener("mousedown", () => {
+      isDrawing = true;
       square.style.backgroundColor = color;
+    });
+
+    square.addEventListener("mousemove", () => {
+      if (isDrawing) {
+        square.style.backgroundColor = color;
+      }
     });
   });
 }
 
 function drawRandom() {
   gridSquares.forEach((square) => {
-    square.addEventListener(
-      "mousedown",
-      () => (square.style.backgroundColor = getRandomColor())
-    );
+    square.addEventListener("mousedown", () => {
+      isDrawing = true;
+      square.style.backgroundColor = getRandomColor();
+    });
+    square.addEventListener("mousemove", () => {
+      if (isDrawing) {
+        square.style.backgroundColor = getRandomColor();
+      }
+    });
   });
 }
 function drawOpacity() {
@@ -35,6 +48,10 @@ function drawOpacity() {
     });
   });
 }
+
+document.addEventListener("mouseup", () => {
+  isDrawing = false;
+});
 
 const opacityBtn = document.querySelector("#opacityModeBtn");
 
@@ -57,16 +74,19 @@ opacityBtn.addEventListener("click", () => {
 });
 
 const newGridSizeBtn = document.querySelector("#newGridSizeBtn");
-newGridSizeBtn.addEventListener("click", () => getNewGridSize());
+newGridSizeBtn.addEventListener("click", () => {getNewGridSize()});
 
 const clearGridBtn = document.querySelector("#clearGridBtn");
 clearGridBtn.addEventListener("click", () => clearGrid());
 
+
 const gridDefaultSizeBtn = document.querySelector("#gridDefaultSizeBtn");
 gridDefaultSizeBtn.addEventListener("click", () => {
-  removeGrid(), createGrid(gridElementCount, gridSize), addNewGrid(), draw();
+  removeGrid(), createGrid(gridElementCount, gridSize), addNewGrid(), draw(), gridDefaultSizeBtn.style.color = "grey", 
+  gridDefaultSizeBtn.style.backgroundColor = "rgb(7, 56, 58)"
+  gridDefaultSizeBtn.disabled = true;
 });
-
+gridDefaultSizeBtn.disabled = true
 const randomColorBtn = document.querySelector("#randomColorsModeBtn");
 
 randomColorBtn.addEventListener("click", () => {
@@ -85,8 +105,10 @@ randomColorBtn.addEventListener("click", () => {
   }
 });
 
+updateDisabledButtonsStyles()
+
 function updateDisabledButtonsStyles() {
-  const disabledButtons = [opacityBtn, randomColorBtn];
+  const disabledButtons = [opacityBtn, randomColorBtn, gridDefaultSizeBtn];
   disabledButtons.forEach((button) => {
     button.style.color = button.disabled ? "grey" : "white";
   });
@@ -131,6 +153,8 @@ function changeGridSize(newGridSize, newGridElementCount) {
   createGrid(newGridElementCount, newGridSize);
   addNewGrid();
   draw();
+  gridDefaultSizeBtn.disabled = false, gridDefaultSizeBtn.style.color = "white",
+  gridDefaultSizeBtn.style.backgroundColor = "rgb(7, 56, 58)"
 }
 
 function clearGrid() {
